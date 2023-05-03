@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service2";
+option java_outer_classname = "PriceServiceImpl";
+
+message Request {
+  string foodType = 1;
+  double quantity = 2;
+}
+
+message Response {
+  string foodType = 1;
+  double price = 2;
+}
+
+service BidirectionalService {
+  rpc SendData(stream Request) returns (stream Response);
+}

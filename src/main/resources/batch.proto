@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service3";
+option java_outer_classname = "BatchServiceImpl";
+
+message Request {
+  string foodItem = 1;
+}
+
+message Response {
+  string date = 1;
+}
+
+service ServerStreamingService {
+  rpc SendData(Request) returns (stream Response);
+}
